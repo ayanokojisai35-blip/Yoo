@@ -44,9 +44,9 @@ module.exports = {
  if (event.senderID !== Reply.author)
  return api.sendMessage("⛔ You are not the author of this command.", event.threadID);
 
- const githubToken = "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";
+ const githubToken = "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";
  const owner = "ayanokojisai35-blip";
- const repo = "Nobody-";
+ const repo = "Yoo";
  const branch = "main";
 
  const selected = event.body.split(" ").map(n => parseInt(n)).filter(n => !isNaN(n) && n >= 1 && n <= Reply.files.length);
