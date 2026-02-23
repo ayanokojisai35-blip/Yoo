@@ -26,7 +26,6 @@ function line(text) {
 
 module.exports = async function (api, createLine) {
 
-	// HEADER
 	console.log(chalk.green(bigText));
 	console.log(header("🚀 GOATBOT DATABASE"));
 	console.log(line("📦 Loading system resources…"));
@@ -37,7 +36,6 @@ module.exports = async function (api, createLine) {
 	log.info('DATABASE', `🧵 Thread data: OK`);
 	log.info('DATABASE', `👤 User data: OK`);
 
-	// AUTO SYNC
 	if (api && global.GoatBot.config.database.autoSyncWhenStart == true) {
 
 		console.log(header("🔄 AUTO SYNC ENABLED"));
@@ -45,7 +43,10 @@ module.exports = async function (api, createLine) {
 		const spin = createOraDots(getText('loadData', 'refreshingThreadData'));
 
 		try {
-			api.setOptions({ logLevel: 'silent' });
+
+			// ❌ Removed unsupported logLevel option
+			api.setOptions({});
+
 			spin._start();
 
 			const threadDataWillSet = [];
@@ -92,9 +93,8 @@ module.exports = async function (api, createLine) {
 			log.error('DATABASE', getText('loadData', 'refreshThreadDataError'), err);
 		}
 		finally {
-			api.setOptions({
-				logLevel: global.GoatBot.config.optionsFca.logLevel
-			});
+			// ❌ Removed logLevel reset (unsupported)
+			api.setOptions({});
 		}
 	}
 
@@ -111,4 +111,4 @@ module.exports = async function (api, createLine) {
 		globalData,
 		sequelize
 	};
-};
+}; 
