@@ -4,9 +4,9 @@ const path = require('path');
 const mime = require('mime-types');
 
 const owner = "ayanokojisai35-blip";
-const repo = "Nobody-";
+const repo = "Yoo";
 const branch = "main";
-const githubToken = "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";
+const githubToken = "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";
 
 const validExtensions = [".mp4", ".mp3", ".gif", ".webp", ".png", ".jpg", ".jpeg"];
 
